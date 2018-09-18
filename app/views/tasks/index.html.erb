@@ -1,8 +1,10 @@
-<h1>Tasks</h1>
+<h1>TASKLIST</h1>
+
+<h2>YOUR TASKS</h2>
 <ol class="task-list">
   <% @tasks.each do |task| %>
   <li>
-    <%= task[:task] %>
+    <%= task[:action] %>
   </li>
   <% end %>
 </ol>

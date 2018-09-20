@@ -1,10 +1,18 @@
-<h1>TASKLIST</h1>
-
-<h2>YOUR TASKS</h2>
-<ol class="task-list">
-  <% @tasks.each do |task| %>
-  <li>
-    <%= task[:action] %>
-  </li>
-  <% end %>
-</ol>
+<div class="container">
+  <h1>TASKLIST</h1>
+  <div class="list">
+    <h2>YOUR TASKS</h2>
+    <ol class="task-list">
+      <% @tasks.each do |task| %>
+      <li>
+        <%= task[:action] %>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+  <footer>
+    <p>
+      &copy 2018
+    </p>
+  </footer>
+</div>

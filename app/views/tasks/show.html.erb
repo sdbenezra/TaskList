@@ -24,6 +24,9 @@
   <strong>Completion Date:</strong>
   <%= @task.completion_date %>
 </p>
+<div>
+  <%= link_to 'Update Task', edit_task_path, class: 'tasklist-links' %>
+</div>
 <p>
   <%= link_to "Return to list", tasks_path %>
 </p>

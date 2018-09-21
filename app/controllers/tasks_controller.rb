@@ -47,16 +47,16 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find_by(id: params[:id])
-    task.action = params[:task][:action]
-    task.description = params[:task][:description]
-    task.completion_date = params[:task][:completion_date]
-    task.update(action: task.action, description: task.description, completion_date: task.completion_date)
-    # IMPLEMENT CHECK FOR NO UPDATE LIKE BELOW
-    # if @task.save
-    #   redirect_to task_path
-    # else
-    #   render :edit
-    # end
+    # task.action = params[:task][:action]
+    # task.description = params[:task][:description]
+    # task.completion_date = params[:task][:completion_date]
+    task.update(task_params)
+
+    if task.update
+      redirect_to task_path
+    else
+      render :edit
+    end
     redirect_to task_path(task.id)
   end
 

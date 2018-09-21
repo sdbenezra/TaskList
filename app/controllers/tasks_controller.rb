@@ -6,16 +6,14 @@ class TasksController < ApplicationController
   #   {task: "Make dinner", detail: "defrost roast"}
   # ]
 
-  TASKS = Task.all
-
   def index
-    @tasks = TASKS
+    @tasks = Task.all
   end
 
   def show
     task_id = params[:id].to_i
-    @tasks = TASKS[task_id]
-    if @tasks.nil?
+    @task = Task.find_by(id: task_id)
+    if @task.nil?
       head :not_found
     end
   end

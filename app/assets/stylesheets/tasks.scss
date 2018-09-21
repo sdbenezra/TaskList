@@ -1,19 +1,32 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
-  font-family: cursive;
-  background-color: lightgreen;
+.task_list_container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr;
+  grid-template-rows: auto;
+  border: black solid 2px;
+}
+
+.header {
+  grid-column: 1 / -1;
   grid-row: 1 / 2;
+  padding: 2rem;
+}
+
+h1 {
+  font-family: sans-serif;
+  background-color: lightgreen;
 }
 
 h2 {
-  font-family: cursive;
+  font-family: sans-serif;
   background-color: lightgreen;
+  text-align: center;
 }
 
 p {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-family: sans-serif;
 }
 
@@ -21,24 +34,38 @@ li {
   font-size: 1.5em;
 }
 
-.task_list {
-  display: grid;
-  grid-template: 1fr 4fr 1fr / 1fr 1fr 3fr;
-  border: black solid 2px;
-}
-
-.list {
-  grid-column: 3 / -1;
-  grid-row: 2 / -2;
+.list-of-tasks-with-links {
+  grid-column: 2 / -1;
   padding: 2em;
   border: black solid 2px;
-  border-radius: 10%;
-  margin-right: 5em;
+  border-radius: 5%;
+  margin-right: 2em;
+}
+
+.task-detail-link {
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.tasklist-button-bar {
+  grid-column: 1 / 2;
+  padding: 3rem;
+}
+
+.tasklist-links {
+  display: block;
+  border: black solid 2px;
+  border-radius: 8%;
+  padding: 2rem;
+  text-decoration: none;
+  text-align: center;
+  margin: 2rem;
+  font-family: sans-serif;
+  font-size: 1.5rem;
 }
 
 footer {
   grid-column: 1 / -1;
-  grid-row: -1 / -2;
   text-align: center;
   font-size: .5rem;
   padding-top: 2rem;

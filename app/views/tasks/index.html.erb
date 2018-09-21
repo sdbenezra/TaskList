@@ -1,11 +1,26 @@
-<div class="task_list">
-  <h1>TASKLIST</h1>
-  <div class="list">
+<div class="task_list_container">
+  <header class='header'>
+    <h1>TASKLIST</h1>
+  </header>
+  <div class="tasklist-button-bar">
+    <div>
+      <%= link_to 'Add Task', new_task_path, class: 'tasklist-links' %>
+    </div>
+    <div>
+      <%= link_to 'All Tasks', tasks_path, class: 'tasklist-links' %>
+    </div>
+  </div>
+  <div class="list-of-tasks-with-links">
     <h2>YOUR TASKS</h2>
-    <ol class="task-list">
+    <ol>
       <% @tasks.each do |task| %>
       <li>
-        <%= task[:action] %>
+        <p>
+          <%= task.action %>
+        </p>
+        <p>
+          <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
+        </p>
       </li>
       <% end %>
     </ol>

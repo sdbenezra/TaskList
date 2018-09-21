@@ -1,29 +1,29 @@
 <h2>Task Details</h2>
 <p>
   <strong>Task ID:</strong>
-  <%= @tasks[:id] %>
+  <%= @task.id %>
 </p>
 <p>
 
 </p>
 <p>
   <strong>Task:</strong>
-  <%= @tasks[:action] %>
+  <%= @task.action %>
 </p>
 <p>
 
 </p>
 <p>
   <strong>Detail:</strong>
-  <%= @tasks[:description] %>
+  <%= @task.description %>
 </p>
 <p>
 
 </p>
 <p>
   <strong>Completion Date:</strong>
-  <%= @tasks[:completion_date] %>
+  <%= @task.completion_date %>
 </p>
 <p>
-
+  <%= link_to "Return to list", tasks_path %>
 </p>

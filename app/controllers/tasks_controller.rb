@@ -1,3 +1,4 @@
+require 'date'
 class TasksController < ApplicationController
   # TASKS = [
   #   {task: "Feed the dog", detail: "Use the chicken in the fridge"},
@@ -64,6 +65,13 @@ class TasksController < ApplicationController
     task = Task.find_by(id: params[:id])
     task.destroy
     redirect_to tasks_path
+  end
+
+  def mark_complete
+    task = Task.find_by(id: params[:id])
+    task.completion_date = Date.today
+    task.save
+    redirect_to task_path
   end
 
   private

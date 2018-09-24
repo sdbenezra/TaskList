@@ -16,12 +16,10 @@
       <% @tasks.each do |task| %>
       <li>
         <p>
-          <%= task.action %>
+          <%= task.action %> - <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
         </p>
         <p>
-          <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
-        </p>
-        <p>
+          <%= link_to 'Mark Complete', mark_task_complete_path(task.id), method: :patch, class: 'task-detail-link' %>
           <%= link_to 'Update Task', edit_task_path(task.id), class: 'task-detail-link' %>
           <%= link_to 'Delete Task', task_path(task), method: :delete, data: { confirm: "Do you want to delete #{task.action}?" }, class: 'task-detail-link' %>
         </p>

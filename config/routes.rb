@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   delete 'tasks/:id', to: 'tasks#destroy'
 
-  # resources :tasks  
+  patch 'tasks/:id/mark_complete', to: 'tasks#mark_complete', as: "mark_task_complete"
+
+  # resources :tasks
 end

@@ -53,12 +53,11 @@ class TasksController < ApplicationController
     # task.completion_date = params[:task][:completion_date]
     task.update(task_params)
 
-    if task.update
+    if task.save
       redirect_to task_path
     else
       render :edit
     end
-    redirect_to task_path(task.id)
   end
 
   def destroy
@@ -70,6 +69,13 @@ class TasksController < ApplicationController
   def mark_complete
     task = Task.find_by(id: params[:id])
     task.completion_date = Date.today
+    task.save
+    redirect_to task_path
+  end
+
+  def unmark_complete
+    task = Task.find_by(id: params[:id])
+    task.completion_date = nil
     task.save
     redirect_to task_path
   end

@@ -16,10 +16,18 @@
       <% @tasks.each do |task| %>
       <li>
         <p>
-          <%= task.action %> - <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
+          <% if !task.completion_date.blank? %>
+            <strike><%= task.action %></strike> - <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
+          <% else%>
+            <%= task.action %> - <%= link_to 'View Task', task_path(task.id), class: 'task-detail-link' %>
+            <% end %>
         </p>
         <p>
-          <%= link_to 'Mark Complete', mark_task_complete_path(task.id), method: :patch, class: 'task-detail-link' %>
+          <% if task.completion_date.blank? %>
+            <%= link_to 'Mark Complete', mark_task_complete_path(task.id), method: :patch, class: 'task-detail-link' %>
+          <% else %>
+            <%= link_to 'Unmark Complete', unmark_task_complete_path(task.id), method: :patch, class: 'task-detail-link' %>
+          <% end %>
           <%= link_to 'Update Task', edit_task_path(task.id), class: 'task-detail-link' %>
           <%= link_to 'Delete Task', task_path(task), method: :delete, data: { confirm: "Do you want to delete #{task.action}?" }, class: 'task-detail-link' %>
         </p>
